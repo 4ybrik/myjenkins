@@ -27,5 +27,18 @@ pipeline{
                 }
             }
         }
+        stage('Docker stop container'){
+            steps{
+                sh 'docker ps -f name=myapp-container -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=myapp-container -q | xargs -r docker container rm'
+            }
+        }
+        stage('Docker run'){
+            steps{
+                script{
+                    dockerImage.run("-p 8056:80 --rm --name myapp-container")
+                }
+            }
+        }
     }
 }
