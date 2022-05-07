@@ -3,21 +3,15 @@ pipeline{
     environment{
         dockerImage=''
         registry='a9fef026aa43/mynewnginx'
-        registryCredential='github-ssh'
+        registryCredential='dockerhub_id'
     }
     stages{
         stage('Checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-ssh', url: 'https://github.com/isostheneia94/DevOps_Jenkins_ansible_task.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'dockerhub_id', url: 'https://github.com/isostheneia94/DevOps_Jenkins_ansible_task.git']]])
             }
         }
-        stage('Build Image'){
-            steps{
-                script{
-                    dockerImage = docker.build registry
-                }
-            }
-        }
+        
         stage('Uploading'){
             steps{
                 script{
