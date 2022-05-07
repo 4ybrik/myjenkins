@@ -15,7 +15,7 @@ pipeline{
         stage('Docker run'){
             steps{
                 script{
-                    dockerImage.run("-p 8056:80 --rm --name myapp-container")
+                    dockerImage.run("-p 8088:80 --rm --name dpld")
                 }
             }
         }
