@@ -40,5 +40,11 @@ pipeline{
                 }
             }
         }
+        stage('Run playbook'){
+            steps{
+                sh 'docker images prune'
+                sh 'ansible-playbook playbook.yml'
+            }
+        }
     }
 }
