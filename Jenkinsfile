@@ -11,7 +11,22 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'dockerhub_id', url: 'https://github.com/isostheneia94/DevOps_Jenkins_ansible_task.git']]])
             }
         }
-        
+        stage('Build Image'){
+            steps{
+                script{
+                    dockerImage = docker.build registry
+                }
+            }
+        }
+        stage('Uploading'){
+            steps{
+                script{
+                    docker.withRegistry('',registryCredential){
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
         stage('Docker stop container'){
             steps{
                 sh 'docker ps -f name=myapp-container -q | xargs --no-run-if-empty docker container stop'
