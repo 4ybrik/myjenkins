@@ -2,13 +2,13 @@ pipeline{
     agent any
     environment{
         dockerImage=''
-        registry='a9fef026aa43/new-app'
+        registry='a9fef026aa43/mynewnginx'
         registryCredential='github-ssh'
     }
     stages{
         stage('Checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-ssh', url: 'https://github.com/4ybrik/myjenkins.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-ssh', url: 'https://github.com/isostheneia94/DevOps_Jenkins_ansible_task.git']]])
             }
         }
         stage('Build Image'){
