@@ -43,7 +43,8 @@ pipeline{
         stage('Run playbook'){
             steps{
                 sh 'docker images prune'
-                sh 'ansible-playbook playbook.yml'
+                sh 'chmod +x script_ans.sh'
+		sh './script_ans.sh'
             }
         }
     }
