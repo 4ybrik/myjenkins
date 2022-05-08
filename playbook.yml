@@ -12,4 +12,4 @@
        command: docker container prune -f
 
      - name: Docker run on every server
-       command: docker run -d -p 8089:80 --name dpld a9fef026aa43/mynewnginx:latest
+       command: docker run -d -p 8087:80 --name dpld a9fef026aa43/mynewnginx:latest
