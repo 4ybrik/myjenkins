@@ -12,8 +12,8 @@
      - name: Delete old container (if exists)
        command: docker container prune -f
 =======
-     - name: Delete old container (if exists.)
-       command: docker container prune
+     - name: Delete old container (if exists)
+       command: docker container prune -f
 >>>>>>> origin
 
      - name: Docker run on every server
