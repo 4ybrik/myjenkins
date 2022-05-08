@@ -11,8 +11,5 @@
      - name: Delete old container (if exists)
        command: docker container prune -f
 
-     - name: Delete old images (if exists)
-       command: docker images prune -f
-
      - name: Docker run on every server
        command: docker run -d -p 8089:80 --name dpld a9fef026aa43/mynewnginx:latest
