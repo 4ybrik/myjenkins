@@ -36,7 +36,7 @@ pipeline{
         stage('Docker run'){
             steps{
                 script{
-                    dockerImage.run("-p 8088:80 --rm --name mynewnginx")
+                    dockerImage.run("-p 8089:80 --rm --name mynewnginx")
                 }
             }
         }
