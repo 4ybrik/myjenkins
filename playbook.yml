@@ -9,7 +9,7 @@
        command: docker pull a9fef026aa43/mynewnginx:latest
 
      - name: Delete old container (if exists)
-       command: docker rm dpld
+       command: docker container prune
 
      - name: Docker run on every server
        command: docker run -d -p 8088:80 --name dpld a9fef026aa43/mynewnginx:latest
