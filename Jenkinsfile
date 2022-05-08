@@ -40,11 +40,6 @@ pipeline{
                 }
             }
         }
-#	stage('swap user'){
-#	    steps{
-#		sh 'sudo su'
-#	    }
-#	}
         stage('Run playbook'){
             steps{
                 sh 'docker images prune'
