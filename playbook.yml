@@ -8,7 +8,7 @@
      - name: Docker pull latest image
        command: docker pull a9fef026aa43/mynewnginx:latest
 
-     - name: Delete old container (if exists)
+     - name: Delete old container (if exists .)
        command: docker container prune -f
 
      - name: Docker run on every server
