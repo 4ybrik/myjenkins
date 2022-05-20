@@ -33,12 +33,5 @@ pipeline{
                 sh 'docker container ls -a -fname=mynewnginx -q | xargs -r docker container rm'
             }
         }
-        stage('Docker run'){
-            steps{
-                script{
-                    dockerImage.run("-p 8087:80 --rm --name mynewnginx")
-                }
-            }
-        }
     }
 }
